@@ -34,20 +34,19 @@ function App() {
       <header>
         <h1>Welcome to My Cocktail App</h1>
       </header>
-      <main>
-        <h2>Drinks</h2>
+      
+      
+      <div>
         <div className="drinks-container">
           {drinks.map(drink => (
             <div key={drink.idDrink} className="drink">
-              <h3>{drink.strDrink}</h3>
-              <p>Category: {drink.strCategory}</p>
-              <p>Glass: {drink.strGlass}</p>
-              <p>Instructions: {drink.strInstructions}</p>
+              <img src={drink.strDrinkThumb} className="drinkImage"></img>
+              <h2>{drink.strDrink}</h2>
               {/* You can display other drink details as needed */}
             </div>
           ))}
         </div>
-      </main>
+      </div>
     </div>
   );
 }
