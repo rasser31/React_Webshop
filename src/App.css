@@ -2,7 +2,22 @@
   text-align: center;
 }
 
+.mainImage{
+  object-fit: cover;
+  width: 100%;
+
+}
+
+.drinks-container{
+  display: flex;
+  justify-content: space-around;
+
+  margin-left: 10vw; margin-right: 10vw;
+}
+
 .drinkImage{
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
+
+  object-fit: cover;
 }

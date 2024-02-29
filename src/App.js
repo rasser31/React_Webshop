@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios'; // Make sure to install axios
 
+import image from './assets/testimage.jpg';
+
 function App() {
   const [drinks, setDrinks] = useState([]);
-  const drinkIds = [11007, 11008, 11009]; // Array of drink IDs you want to fetch
+  const drinkIds = [11007, 11008, 11009, 11010]; // Array of drink IDs you want to fetch
 
   useEffect(() => {
     const fetchDrinksByIds = async () => {
@@ -32,21 +34,23 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Welcome to My Cocktail App</h1>
+        <div>
+
+        </div>
       </header>
-      
-      
-      <div>
-        <div className="drinks-container">
+      <main>
+        <img className='mainImage' src={image} alt="The main image of the website" />
+
+        <div className='drinks-container'>
           {drinks.map(drink => (
-            <div key={drink.idDrink} className="drink">
-              <img src={drink.strDrinkThumb} className="drinkImage"></img>
+            <div key={drink.idDrink} className='drink'>
+              <img className='drinkImage' src={drink.strDrinkThumb} alt='Image of specified drinks'/>
               <h2>{drink.strDrink}</h2>
               {/* You can display other drink details as needed */}
             </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 }
