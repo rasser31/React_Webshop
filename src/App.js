@@ -2,34 +2,44 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios'; // Make sure to install axios
 
-import image from './assets/testimage.jpg';
+import image from './assets/black_gold_bar_new.jpg';
 
 function App() {
   const [drinks, setDrinks] = useState([]);
   const drinkIds = [11007, 11008, 11009, 11010]; // Array of drink IDs you want to fetch
 
+  // Define a price map for each drink ID
+  const drinkPrices = {
+    11007: '$8.50',
+    11008: '$7.00',
+    11009: '$9.25',
+    11010: '$6.75',
+  };
+
   useEffect(() => {
     const fetchDrinksByIds = async () => {
       try {
-        // Map over each drink ID and fetch the drink details
         const drinkRequests = drinkIds.map(id =>
           axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
         );
 
-        // Use Promise.all to send all requests simultaneously
         const responses = await Promise.all(drinkRequests);
-
-        // Extract the drinks data from each response
         const drinksData = responses.map(response => response.data.drinks[0]);
 
-        setDrinks(drinksData);
+        // Add specific prices to each drink using the drinkPrices map
+        const drinksWithPrices = drinksData.map(drink => ({
+          ...drink,
+          price: drinkPrices[drink.idDrink], // Use the drink ID to find its price
+        }));
+
+        setDrinks(drinksWithPrices);
       } catch (error) {
         console.error('Error fetching drinks:', error);
       }
     };
 
     fetchDrinksByIds();
-  }, [drinkIds]); // Include drinkIds in the dependency array to trigger useEffect when it changes
+  }, [drinkIds]);
 
   return (
     <div className="App">
@@ -46,6 +56,7 @@ function App() {
             <div key={drink.idDrink} className='drink'>
               <img className='drinkImage' src={drink.strDrinkThumb} alt='Image of specified drinks'/>
               <h2>{drink.strDrink}</h2>
+              <h3>Price: {drink.price}</h3>
               {/* You can display other drink details as needed */}
             </div>
           ))}
@@ -56,4 +67,5 @@ function App() {
 }
 
 export default App;
+
 
