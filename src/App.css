@@ -2,10 +2,9 @@
   text-align: center;
 }
 
-.mainImage{
+.main_image{
   object-fit: cover;
   width: 100%;
-
 }
 
 .drinks-container{

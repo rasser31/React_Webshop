@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios'; // Make sure to install axios
+import axios from 'axios';
 
-import image from './assets/black_gold_bar_new.jpg';
+import mainImage from './assets/black_gold_bar_new.jpg';
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -43,13 +43,8 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <div>
-
-        </div>
-      </header>
       <main>
-        <img className='mainImage' src={image} alt="The main image of the website" />
+        <img className='main_image' src={mainImage} alt="The main image of the website" />
 
         <div className='drinks-container'>
           {drinks.map(drink => (
