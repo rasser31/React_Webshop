@@ -2,21 +2,110 @@
   text-align: center;
 }
 
-.main_image{
+.main_image {
   object-fit: cover;
   width: 100%;
+  position: relative;
 }
 
-.drinks-container{
+.drinks-container {
   display: flex;
   justify-content: space-around;
-
-  margin-left: 10vw; margin-right: 10vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
-.drinkImage{
+.drinkImage {
   width: 250px;
   height: 250px;
-
   object-fit: cover;
 }
+
+.cart-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.cart-count {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 998; /* Decreased z-index */
+}
+
+.cart-card {
+  background-color: #fff;
+  width: 40vw;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-total {
+  margin-top: 20px;
+}
+
+.pay-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+
