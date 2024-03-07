@@ -14,21 +14,21 @@ function App() {
   const [earnedProfit, setEarnedProfit] = useState(0); // State variable for storing earned profit from purchases
 
   // Array of drink IDs to fetch from the API
-  const drinkIds = [11007, 11008, 11009, 11010];
+  const drinkIds = [11007, 11008, 11009, 11020];
 
   // Price maps for drinks
   const drinkPrices = {
     11007: '8.50',
     11008: '7.00',
     11009: '9.25',
-    11010: '6.75',
+    11020: '6.75',
   };
 
   const drinkPricesBefore = {
     11007: '6.50',
     11008: '5.00',
     11009: '5.25',
-    11010: '3.75',
+    11020: '3.75',
   };
 
   // Function to fetch drinks data from the API
@@ -173,18 +173,22 @@ function App() {
             </div>
           </div>
         )}
-
-        <div className='drinks-container'>
-          {drinks.map(drink => (
-            <div key={drink.idDrink} className='drink'>
-              <img className='drinkImage' src={drink.strDrinkThumb} alt='Image of specified drinks'/>
-              <h2>{drink.strDrink}</h2>
-              <h3>Price: ${drink.price}</h3>
-              <h3>Price Before: ${drink.pricebefore}</h3>
-              <button onClick={() => addToCart(drink)}>Add to Cart</button>
-            </div>
-          ))}
+        <div className='site-content'>
+          <div className='drinks-container'>
+            {drinks.map(drink => (
+              <div key={drink.idDrink} className='drink'>
+                <img className='drinkImage' src={drink.strDrinkThumb} alt='Image of specified drinks'/>
+                <h2>{drink.strDrink}</h2>
+                <h3>Price: ${drink.price}</h3>
+                <h3>Price Before: ${drink.pricebefore}</h3>
+                <button className='addtocart-button' onClick={() => addToCart(drink)}>Add to Cart</button>
+              </div>
+            ))}
+          </div>
         </div>
+
+        <footer>
+        </footer>
       </main>
     </div>
   );
